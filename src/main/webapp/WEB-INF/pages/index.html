@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<div>
+    <h4><a th:href="@{'/users/add'}">Добавить</a></h4>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Имя</td>
+            <td>Фамилия</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="u : ${users}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.firstName}"></td>
+            <td th:text="${u.lastName}"></td>
+            <td><a th:href="@{'/users/update/' + ${u.id}}">Редактировать</a></td>
+            <td><a th:href="@{'/users/delete/' + ${u.id}}">Удалить</a> </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
